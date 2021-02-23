@@ -6,7 +6,7 @@ namespace MidtermProject_POSApplication
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("hello!");
         }
     }
 }
