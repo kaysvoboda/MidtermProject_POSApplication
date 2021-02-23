@@ -4,7 +4,20 @@ using System.Text;
 
 namespace MidtermProject_POSApplication
 {
-    class CheckPayment
+    public class CheckPayment : IPayment
     {
+        public string CheckNumber { get; set; }
+
+        public string GetCheckNumber()
+        {
+            Console.Write("Check number: ");
+            string checkNumber = Console.ReadLine();
+            CheckNumber = checkNumber;
+            return CheckNumber;
+
+        }
+
     }
+
+
 }

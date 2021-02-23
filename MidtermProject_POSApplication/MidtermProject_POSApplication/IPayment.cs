@@ -4,7 +4,8 @@ using System.Text;
 
 namespace MidtermProject_POSApplication
 {
-    class Payment
-    {
-    }
+    public interface IPayment { }
+
+    public interface IPaymentType { }
+
 }

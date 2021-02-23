@@ -6,7 +6,14 @@ namespace MidtermProject_POSApplication
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("hello!");
+            var payment = new CreditCardPayment();
+
+            var ccNumber = payment.GetCardNumber();
+            payment.ObscureCCNumber(ccNumber);
+
+            
+
+            Console.WriteLine($"{payment.LastFourDigits}");
         }
     }
 }

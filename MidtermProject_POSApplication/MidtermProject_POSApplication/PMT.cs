@@ -4,7 +4,10 @@ using System.Text;
 
 namespace MidtermProject_POSApplication
 {
-    class PMT
+    public enum PMT
     {
+        Check,
+        Cash,
+        Credit,
     }
 }
