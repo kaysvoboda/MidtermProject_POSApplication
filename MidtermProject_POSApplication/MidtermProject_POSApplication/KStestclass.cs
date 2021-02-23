@@ -10,8 +10,8 @@ namespace MidtermProject_POSApplication
         {
 
 
-            string test = "This is a new test test test edit";
-            return test;
+            string test = "This is a new test test test edit and i'm continuing to edit";
+                         return test;
 
         }
     }
