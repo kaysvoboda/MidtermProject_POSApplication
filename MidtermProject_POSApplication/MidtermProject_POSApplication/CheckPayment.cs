@@ -22,14 +22,5 @@ namespace MidtermProject_POSApplication
             return CheckNumber;
 
         }
-
-        public void GetPaymentInformation()
-        {
-            var payment = new CheckPayment();
-            payment.GetCheckNumber();
-        }
-
     }
-
-
 }
