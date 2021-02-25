@@ -4,8 +4,13 @@ using System.Text;
 
 namespace MidtermProject_POSApplication
 {
-    public class CashPayment : IPayment
+    public class CashPayment : Payment
     {
+        public override PMT PaymentType()
+        {
+            PMT paymentType= PMT.Cash;
+            return paymentType;
+        }
         public double AmountTendered { get; set; }
         public double ChangeOwed { get; set; }
 
@@ -21,10 +26,21 @@ namespace MidtermProject_POSApplication
 
         public double ProvideChange(double amountTendered, double total) 
         {
-            //AmountTendered = amountTendered;
             double changeOwed = amountTendered - total;
             ChangeOwed = changeOwed;
             return ChangeOwed;
+        }
+
+        public void GetPaymentInformation()
+        {
+            var payment = new CashPayment();
+            var total = new Math();
+            var grandTotal = total.FindGrandTotal(total.FindtaxTotal(total.FindSumTotal(14)), total.FindSumTotal(14)); //need to update to take in subtotal once list logic is built
+         
+            payment.GetCashPayment();
+            //Console.WriteLine($"Amount Tendered: {AmountTendered}");
+            //Console.WriteLine($"Change due: {payment.ProvideChange(AmountTendered, grandTotal)}");
+
         }
 
     }

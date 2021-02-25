@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace midterm_scratch
+namespace MidtermProject_POSApplication
 {
     public class Math : PriceList
     {

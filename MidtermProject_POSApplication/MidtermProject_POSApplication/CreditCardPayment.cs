@@ -4,12 +4,18 @@ using System.Text;
 
 namespace MidtermProject_POSApplication
 {
-    class CreditCardPayment : IPayment 
+    class CreditCardPayment : Payment 
     {
         public string CardNumber { get; set; }
         public string LastFourDigits { get; set; }
         public string ExpirationDate { get; set; }
         public string CVV { get; set; }
+
+        public override PMT PaymentType()
+        {
+            PMT paymentType = PMT.Credit;
+            return paymentType;
+        }
 
         public string GetCardNumber()
         {
@@ -20,9 +26,9 @@ namespace MidtermProject_POSApplication
 
         }
 
-        public string ObscureCCNumber(string cardnumber)
+        public string ObscureCCNumber(string cardNumber)
         {
-            string lastFourDigits = $"XXXX XXXX XXXX {cardnumber.Substring(cardnumber.Length - 4)}";
+            string lastFourDigits = $"XXXX XXXX XXXX {cardNumber.Substring(cardNumber.Length - 4)}";
             LastFourDigits = lastFourDigits;
             return LastFourDigits;
         }
@@ -48,6 +54,14 @@ namespace MidtermProject_POSApplication
             string inputCVV = Console.ReadLine();
             CVV = inputCVV;
             return CVV;
+        }
+
+        public void GetPaymentInformation()
+        {
+            var payment = new CreditCardPayment();
+            payment.GetCardNumber();
+            payment.GetExpDate();
+            payment.GetCVV();
         }
     }
 }
