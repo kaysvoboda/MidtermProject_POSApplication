@@ -4,8 +4,14 @@ using System.Text;
 
 namespace MidtermProject_POSApplication
 {
-    public class CheckPayment : IPayment
+    public class CheckPayment : Payment
     {
+        public override PMT PaymentType()
+        {
+            PMT paymentType = PMT.Check;
+            return paymentType;
+        }
+
         public string CheckNumber { get; set; }
 
         public string GetCheckNumber()
@@ -16,8 +22,5 @@ namespace MidtermProject_POSApplication
             return CheckNumber;
 
         }
-
     }
-
-
 }

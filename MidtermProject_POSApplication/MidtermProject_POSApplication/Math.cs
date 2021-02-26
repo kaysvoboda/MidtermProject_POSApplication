@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,6 +14,7 @@ namespace MidtermProject_POSApplication
 
         public decimal FindSumTotal(decimal sumTotal)
         {
+
             PriceList priceList = new PriceList();
             List<decimal> practice = priceList.addToList();
             for(int i = 0; i < practice.Count; i++) // need list name
@@ -21,6 +22,15 @@ namespace MidtermProject_POSApplication
                 decimal sum = 0;
                 sumTotal = sum + i;
                 }
+
+            //PriceList priceList = new PriceList();
+            //List<double> practice = priceList.addToList();
+            //for(int i = 0; i < practice.Count; i++) // need list name
+            //    {
+            //    double sum = 0;
+            //    sumTotal = sum + i;
+            //    }
+
 
             SumTotal = sumTotal;
             return SumTotal;
