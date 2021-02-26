@@ -6,12 +6,12 @@ namespace MidtermProject_POSApplication
 {
     public class CashPayment : IPayment
     {
-        public double AmountTendered { get; set; }
+        public decimal AmountTendered { get; set; }
 
-        public double ProvideChange(double amountTendered, double total) 
+        public decimal ProvideChange(decimal amountTendered, decimal total) 
         {
             AmountTendered = amountTendered;
-            double change = amountTendered - total;
+            decimal change = amountTendered - total;
             return change;
         }
 
