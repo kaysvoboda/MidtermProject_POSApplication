@@ -73,15 +73,14 @@ namespace MidtermProject_POSApplication
             string lastFourDigits = $"XXXX XXXX XXXX {cardNumber.Substring(cardNumber.Length - 4)}";
             LastFourDigits = lastFourDigits;
 
-            Console.WriteLine($"hi {CardNumber}");
+
         }
 
         public void PrintReceiptInfo()
         {
-            var receipt = new CreditCardPayment();
 
-
-            Console.WriteLine(receipt.LastFourDigits);
+            Console.WriteLine(LastFourDigits);
+            Console.WriteLine("Card Payment : APPROVED");
 
         }
     }

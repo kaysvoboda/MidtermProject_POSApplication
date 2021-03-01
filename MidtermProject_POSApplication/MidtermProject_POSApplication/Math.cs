@@ -22,24 +22,16 @@ namespace MidtermProject_POSApplication
                 decimal sum = 0;
                 sumTotal = sum + i;
                 }
-
-            //PriceList priceList = new PriceList();
-            //List<double> practice = priceList.addToList();
-            //for(int i = 0; i < practice.Count; i++) // need list name
-            //    {
-            //    double sum = 0;
-            //    sumTotal = sum + i;
-            //    }
-
-
             SumTotal = sumTotal;
             return SumTotal;
         }
 
         public decimal FindtaxTotal(decimal sumTotal)
         {
-            
-            decimal taxTotal = sumTotal * 0.06M;
+
+            decimal taxTotal = sumTotal * .06M;
+         
+
             TaxTotal = taxTotal;
             return TaxTotal;
         }

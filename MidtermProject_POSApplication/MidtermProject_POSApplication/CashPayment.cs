@@ -11,9 +11,12 @@ namespace MidtermProject_POSApplication
             string paymentType = "cash";
             return paymentType;
         }
+
+
         public decimal AmountTendered { get; set; }
         public decimal ChangeOwed { get; set; }
 
+        //public static decimal amountTendered = 0.0M;
 
 
         public void GetPaymentInformation()
@@ -25,23 +28,23 @@ namespace MidtermProject_POSApplication
             //return AmountTendered;
         }
 
+
         public decimal ProvideChange(decimal amountTendered, decimal total) 
         {
-            decimal changeOwed = amountTendered - total;
-            ChangeOwed = changeOwed;
+
+            decimal _changeOwed = amountTendered - total;
+            ChangeOwed = _changeOwed;
             return ChangeOwed;
         }
 
         public void PrintReceiptInfo()
-        {
-            var payment = new CashPayment();
+        {           
             var total = new Math();
-            payment.GetPaymentInformation();
-            payment.ProvideChange(AmountTendered, (decimal)(total.FindGrandTotal(total.FindtaxTotal(15), total.FindSumTotal(15))));
+            ProvideChange(AmountTendered, (decimal)total.FindGrandTotal(total.FindtaxTotal(15.0M), total.FindSumTotal(15.0M)));
 
          
-            Console.WriteLine($"Amount Tendered: {AmountTendered}");
-            Console.WriteLine($"Change due: {ChangeOwed}");
+            Console.WriteLine($"Amount Tendered: ${AmountTendered}");
+            Console.WriteLine($"Change due: ${ChangeOwed.ToString("0.00")}");
 
 
         }
