@@ -21,16 +21,16 @@ namespace MidtermProject_POSApplication
 
             do
             {
-                Console.WriteLine("Please select item number: ");
+                Console.Write("Please select item number: ");
                 int userSelection = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Please enter quantity: ");
+                Console.Write("Please enter quantity: ");
                 int userQuantity = int.Parse(Console.ReadLine());
 
                 var order = new Order(userSelection, userQuantity);
                 totalOrder.Add(order);
 
-                Console.WriteLine("Would you like to make another selection? (y/n)");
+                Console.Write("Would you like to make another selection? (y/n): ");
                 userContinue = Console.ReadLine();
             }
             while (userContinue == "y");

@@ -6,13 +6,13 @@ namespace MidtermProject_POSApplication
     public class Menu
     {
         
-        public string ItemNumber { get;}
+        public string ItemNumber { get; set; }
         public string Item { get; set; }
-        public string Description { get; }
-        public decimal Price { get; }
+        public string Description { get; set; }
+        public string Price { get; set; }
         public string Category { get; set; }
 
-        public Menu(string itemNumber, string item, string description, decimal price, string category)
+        public Menu(string itemNumber, string item, string description, string price, string category)
         {
             ItemNumber = itemNumber;
             Item = item;
@@ -38,32 +38,32 @@ namespace MidtermProject_POSApplication
             while ((line = file.ReadLine()) != null)
             {
                 var words = line.Split(',');
-                menuList.Add(new Menu(words[0], words[1], words[2], 7, words[4]));
+                menuList.Add(new Menu(words[0], words[1], words[2], words[3], words[4]));
             }
 
             file.Close();
 
-            Console.WriteLine("Beverage");
+            Console.WriteLine("Beverage: ");
             foreach (var item in menuList)
             {
-                if (item.Category == "Beverage")
-                    Console.WriteLine($"{item.ItemNumber} {item.Item} {item.Description} {item.Price} {item.Category}");
+                if (item.Category.ToLower().Contains("beverage"))
+                    Console.WriteLine($"{item.ItemNumber}: {item.Item} {item.Description} - ${item.Price} - {item.Category}");
             }
             Console.WriteLine();
 
-            Console.WriteLine("Food");
+            Console.WriteLine("Food: ");
             foreach (var item in menuList)
             {
-                if (item.Category == "Food")
-                    Console.WriteLine($"{item.ItemNumber} {item.Item} {item.Description} {item.Price} {item.Category}");
+                if (item.Category.ToLower().Contains("food"))
+                    Console.WriteLine($"{item.ItemNumber}: {item.Item} {item.Description} - ${item.Price} - {item.Category}");
             }
             Console.WriteLine();
 
-            Console.WriteLine("Miscellaneous");
+            Console.WriteLine("Miscellaneous: ");
             foreach (var item in menuList)
             {
-                if (item.Category == "Miscellaneous")
-                    Console.WriteLine($"{item.ItemNumber} {item.Item} {item.Description} {item.Price} {item.Category}");
+                if (item.Category.ToLower().Contains("miscellaneous"))
+                    Console.WriteLine($"{item.ItemNumber}: {item.Item} {item.Description} - ${item.Price} - {item.Category}");
 
             }
             Console.WriteLine();
