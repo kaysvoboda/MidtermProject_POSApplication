@@ -6,13 +6,13 @@ namespace MidtermProject_POSApplication
 {
     public class PriceList
     {
-        public List<double> addToList()
+        public List<decimal> addToList()
         {
-        List<double> practice = new List<double>();
+        List<decimal> practice = new List<decimal>();
         
-            practice.Add(5.98);
-            practice.Add(2.49);
-            practice.Add(0.79);
+            practice.Add(5.98M);
+            practice.Add(2.49M);
+            practice.Add(0.79M);
 
             return practice;
     }   }
