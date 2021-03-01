@@ -48,9 +48,11 @@ namespace MidtermProject_POSApplication
             else if (paymentMethod.ToLower() == "cash")
             {
                 var payment = new CashPayment();
+                var total = new Math();
                 
                 payment.GetPaymentInformation();
-                decimal changeDue = payment.ProvideChange(payment.AmountTendered, 15); //update '15' once class is available to call
+
+                decimal changeDue = payment.ProvideChange(payment.AmountTendered, (decimal)total.FindGrandTotal(total.FindtaxTotal(15.0M), total.FindSumTotal(15.0M)));
                 ChangeDue = $"${changeDue:#.##}";
                 return ChangeDue;
 
@@ -93,20 +95,6 @@ namespace MidtermProject_POSApplication
             }
             else throw new Exception(nameof(paymentMethod));
         }
-
-
-
-        //string display =
-
-
-        // return $"Payment Type: Credit" + NewLine +
-        // $"Card Number {display} : Approved" + NewLine +
-        //                 $"Change Due: $0";
-
-        //return $"Payment Type: Cash" + NewLine +
-        //$"Total:" + NewLine + //update to add {total} once available
-        //$"Amount tendered: {payment.AmountTendered}" + NewLine +
-        //$"Change due: {payment.ChangeOwed}";
 
     }
 

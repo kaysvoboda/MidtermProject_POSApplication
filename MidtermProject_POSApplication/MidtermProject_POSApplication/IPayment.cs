@@ -8,7 +8,7 @@ namespace MidtermProject_POSApplication
     {
         string PaymentType();
 
-        public decimal GetPaymentInformation();
+        public void GetPaymentInformation();
 
         public void PrintReceiptInfo();
     }
