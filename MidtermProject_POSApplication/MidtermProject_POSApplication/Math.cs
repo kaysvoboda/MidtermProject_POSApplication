@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,13 +7,22 @@ namespace MidtermProject_POSApplication
 {
     public class Math : PriceList
     {
-        public double SumTotal { get; set; }
-        public double TaxTotal { get; set; }
-        public double GrandTotal { get; set; }
+        public decimal SumTotal { get; set; }
+        public decimal TaxTotal { get; set; }
+        public decimal GrandTotal { get; set; }
 
 
-        public double FindSumTotal(double sumTotal)
+        public decimal FindSumTotal(decimal sumTotal)
         {
+
+            PriceList priceList = new PriceList();
+            List<decimal> practice = priceList.addToList();
+            for(int i = 0; i < practice.Count; i++) // need list name
+                {
+                decimal sum = 0;
+                sumTotal = sum + i;
+                }
+
             //PriceList priceList = new PriceList();
             //List<double> practice = priceList.addToList();
             //for(int i = 0; i < practice.Count; i++) // need list name
@@ -22,21 +31,22 @@ namespace MidtermProject_POSApplication
             //    sumTotal = sum + i;
             //    }
 
+
             SumTotal = sumTotal;
             return SumTotal;
         }
 
-        public double FindtaxTotal(double sumTotal)
+        public decimal FindtaxTotal(decimal sumTotal)
         {
             
-            double taxTotal = sumTotal * 0.06;
+            decimal taxTotal = sumTotal * 0.06M;
             TaxTotal = taxTotal;
             return TaxTotal;
         }
 
-        public double FindGrandTotal(double taxTotal, double sumTotal)
+        public decimal FindGrandTotal(decimal taxTotal, decimal sumTotal)
         {
-            double grandTotal = sumTotal + taxTotal;
+            decimal grandTotal = sumTotal + taxTotal;
             GrandTotal = grandTotal;
             return GrandTotal;
         }
