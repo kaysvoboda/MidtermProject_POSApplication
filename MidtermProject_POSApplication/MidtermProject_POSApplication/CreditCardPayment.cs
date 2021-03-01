@@ -4,16 +4,23 @@ using System.Text;
 
 namespace MidtermProject_POSApplication
 {
-    class CreditCardPayment : Payment 
+    public class CreditCardPayment : IPayment
     {
+        //public static CardNumber1 _cardNumber = new CardNumber1;
+        //public static CardNumber1 CardNumberInstance
+        //{
+        //    get { return _cardNumber}
+        //}
+
+
         public string CardNumber { get; set; }
         public string LastFourDigits { get; set; }
         public string ExpirationDate { get; set; }
         public string CVV { get; set; }
 
-        public override PMT PaymentType()
+        public string PaymentType()
         {
-            PMT paymentType = PMT.Credit;
+            string paymentType = "credit";
             return paymentType;
         }
 
@@ -26,11 +33,11 @@ namespace MidtermProject_POSApplication
 
         }
 
-        public string ObscureCCNumber(string cardNumber)
+        public void ObscureCCNumber(string cardNumber)
         {
             string lastFourDigits = $"XXXX XXXX XXXX {cardNumber.Substring(cardNumber.Length - 4)}";
             LastFourDigits = lastFourDigits;
-            return LastFourDigits;
+            //return LastFourDigits;
         }
 
         public string GetExpDate()
@@ -59,9 +66,23 @@ namespace MidtermProject_POSApplication
         public void GetPaymentInformation()
         {
             var payment = new CreditCardPayment();
-            payment.GetCardNumber();
+            string cardNumber = payment.GetCardNumber();
+            CardNumber = cardNumber;
             payment.GetExpDate();
             payment.GetCVV();
+            string lastFourDigits = $"XXXX XXXX XXXX {cardNumber.Substring(cardNumber.Length - 4)}";
+            LastFourDigits = lastFourDigits;
+
+            Console.WriteLine($"hi {CardNumber}");
+        }
+
+        public void PrintReceiptInfo()
+        {
+            var receipt = new CreditCardPayment();
+
+
+            Console.WriteLine(receipt.LastFourDigits);
+
         }
     }
 }
