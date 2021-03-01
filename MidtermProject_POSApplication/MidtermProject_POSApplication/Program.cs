@@ -6,21 +6,167 @@ namespace MidtermProject_POSApplication
     {
         static void Main(string[] args)
         {
-            //var payment = new CreditCardPayment();
-            //var ccNumber = payment.GetCardNumber();
-            //payment.ObscureCCNumber(ccNumber);
-            //Console.WriteLine($"{payment.LastFourDigits}");
 
 
-            //var payment2 = new CashPayment();
+            var paymentDue = new Math();
+            Console.WriteLine($"Subtotal: ${paymentDue.FindSumTotal(15)}"); //update intake
+            Console.WriteLine($"Tax: ${paymentDue.FindtaxTotal(15)}");
+            Console.WriteLine($"Amount Due: ${paymentDue.FindGrandTotal((paymentDue.TaxTotal),15.00M)}");
+            Console.WriteLine("-------------------");
 
-            //payment2.GetCashPayment();
-            //Console.WriteLine($"Change owed: {payment2.ProvideChange(payment2.AmountTendered,50)}");
+            Console.WriteLine("Would you like to pay with credit, cash, or check?: ");
+            string paymentMethod = Console.ReadLine();
+            //var payment = PaymentFactory.Tendered.Create(paymentMethod);
+
+            
+            var receipt = PaymentFactory.Tendered.Print(paymentMethod);
+            receipt.PrintReceiptInfo();
+            Console.ReadLine();
 
 
 
-            var receipt = new Receipt();
-            receipt.PrintReceipt();
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
     }

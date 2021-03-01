@@ -8,17 +8,27 @@ namespace MidtermProject_POSApplication
     {
         public void PrintReceipt()
         {
-
+            //move below to method within Math Class maybe?
             var paymentDue = new Math();
-            Console.WriteLine($"Subtotal: ${paymentDue.FindSumTotal(50)}"); //update intake
+            Console.WriteLine($"Subtotal: ${paymentDue.FindSumTotal(15)}"); //update intake
             Console.WriteLine($"Tax: ${paymentDue.FindtaxTotal(paymentDue.SumTotal)}");
             Console.WriteLine($"Amount Due: ${paymentDue.FindGrandTotal(paymentDue.TaxTotal, paymentDue.SumTotal)}");
+            Console.WriteLine("-------------------");
 
             GetPayment getPayment = new GetPayment();
-            string paymentChoice = getPayment.GetPaymentType();
+            getPayment.GetPaymentType();
+            getPayment.ReturnPaymentType(getPayment.PaymentMethod);
 
-            GetPayment payment = new GetPayment();
-            Console.WriteLine(payment.ReturnPaymentType(paymentChoice)); 
+
+            Console.WriteLine("-------------------");
+            getPayment.CreateReceipt(getPayment.PaymentMethod);
+            
+
+
+
+
+
+
 
         }
 
