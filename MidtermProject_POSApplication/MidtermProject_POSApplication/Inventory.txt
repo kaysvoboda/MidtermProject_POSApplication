@@ -1,5 +1,5 @@
 ﻿Item Number, Item, Description, Price, Category
-1,Caramel Machiotto, Caramel caffinated beverage, 5.45, Beverage
+1,Caramel Machiatto, Caramel caffinated beverage, 5.45, Beverage
 2,Vanilla Bean, Vanilla based frozen beverage, 5.45, Beverage
 3,Coffee, basic coffee beverage, 2.00, Beverage
 4,Caramel Mocha Latte, Latte, 5.45, Beverage
