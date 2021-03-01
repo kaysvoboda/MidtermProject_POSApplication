@@ -69,8 +69,6 @@ namespace MidtermProject_POSApplication
         {
 
         }
-        
-
 
     }
 }
