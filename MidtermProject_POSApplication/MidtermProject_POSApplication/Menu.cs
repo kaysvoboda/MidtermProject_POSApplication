@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MidtermProject_POSApplication
 {
-    class Menu
+    public class Menu
     {
         
         public string ItemNumber { get;}
@@ -12,7 +12,7 @@ namespace MidtermProject_POSApplication
         public decimal Price { get; }
         public string Category { get; set; }
 
-        public Menu(string itemNumber,string item, string description, decimal price, string category)
+        public Menu(string itemNumber, string item, string description, decimal price, string category)
         {
             ItemNumber = itemNumber;
             Item = item;
@@ -21,7 +21,11 @@ namespace MidtermProject_POSApplication
             Category = category;
         }
 
-        public static void TheMenu()
+        public Menu()
+        {
+        }
+
+        public void TheMenu() 
         {
             Console.Write("What Item would you like?");
             Console.WriteLine();
