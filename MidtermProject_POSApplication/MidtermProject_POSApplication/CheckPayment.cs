@@ -19,7 +19,7 @@ namespace MidtermProject_POSApplication
             Console.Write("Check number: ");
             string checkNumber = Console.ReadLine();
             CheckNumber = checkNumber;
-            //return CheckNumber;
+
         }
 
         public void PrintReceiptInfo()

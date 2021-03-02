@@ -25,9 +25,33 @@ namespace MidtermProject_POSApplication
         {
         }
 
-        public void searchMenu()
+        public void SearchMenu()
         {
-            string line;
+            //string line;
+            //var menuList = new List<Menu>();
+
+
+            //System.IO.StreamReader file =
+            //    new System.IO.StreamReader("Inventory.txt");
+            //while ((line = file.ReadLine()) != null)
+            //{
+            //    var words = line.Split(',');
+            //    menuList.Add(new Menu(int.Parse(words[0]), words[1], words[2], double.Parse(words[3]), words[4]));
+            //}
+
+            //file.Close();
+        }
+
+
+        public void TheMenu() 
+        {
+            //Console.Write("What Item would you like?");
+            //Console.WriteLine();
+
+            //var menuItem = menuList.Find(x => x.ItemNumber == );
+            //var itemPrice = menuItem.Price;
+
+            string line;         
             var menuList = new List<Menu>();
 
 
@@ -40,20 +64,6 @@ namespace MidtermProject_POSApplication
             }
 
             file.Close();
-        }
-
-
-        public void TheMenu() 
-        {
-            //Console.Write("What Item would you like?");
-            //Console.WriteLine();
-
-            //string line;
-            
-            var menuList = new List<Menu>();
-
-            //var menuItem = menuList.Find(x => x.ItemNumber == );
-            //var itemPrice = menuItem.Price;
 
             Console.WriteLine("Beverage: ");
             foreach (var item in menuList)

@@ -13,9 +13,15 @@ namespace MidtermProject_POSApplication
             var menu = new Menu();
             menu.TheMenu();
 
+
             //Take in menu item and quantity and display line total (item price * quantity) 
             //Need to incorporate menu and prices
             List<Order> totalOrder = new List<Order>();
+
+            //var menuList = new List<Menu>();
+            menu.SearchMenu();
+
+
 
             string userContinue;
 
@@ -23,27 +29,66 @@ namespace MidtermProject_POSApplication
             {
                 Console.Write("Please select item number: ");
                 int userSelection = int.Parse(Console.ReadLine());
-
+                
                 Console.Write("Please enter quantity: ");
                 int userQuantity = int.Parse(Console.ReadLine());
+                
 
-                var order = new Order(userSelection, userQuantity);
+
+                string line;
+                var menuList = new List<Menu>();
+
+
+                System.IO.StreamReader file =
+                    new System.IO.StreamReader("Inventory.txt");
+                while ((line = file.ReadLine()) != null)
+                {
+                    var words = line.Split(',');
+                    menuList.Add(new Menu(int.Parse(words[0]), words[1], words[2], double.Parse(words[3]), words[4]));
+                }
+
+                file.Close();
+
+                var menuItem = menuList.Find(x => x.ItemNumber == userSelection);
+                var itemName = menuItem.Item;
+                var price = menuItem.Price;            
+                double linePrice = price * userQuantity;
+                var order = new Order(itemName, userQuantity, price, linePrice);
                 totalOrder.Add(order);
+
+                Console.WriteLine($"{itemName}, ${price.ToString("0.00")} x {userQuantity} = ${linePrice.ToString("0.00")}");
 
                 Console.Write("Would you like to make another selection? (y/n): ");
                 userContinue = Console.ReadLine();
             }
             while (userContinue == "y");
       
+            foreach(var item in totalOrder)
+            {
+                Console.WriteLine($"{item.MenuItem}, {item.Quantity} x {item.Price.ToString("0.00")} = {item.LinePrice.ToString("0.00")} ");
+            }
 
-            
+
             //Displays Order Total
             var paymentDue = new Math();
-            //decimal subtotal = paymentDue.FindSumTotal(15.00M)
-            Console.WriteLine($"Subtotal: ${(paymentDue.FindSumTotal(15.00M)).ToString("0.00")}"); //update intake for subtotal
-            Console.WriteLine($"Tax: ${(paymentDue.FindtaxTotal(15.00M)).ToString("0.00")}");
-            Console.WriteLine($"Amount Due: ${(paymentDue.FindGrandTotal((paymentDue.TaxTotal),15.00M)).ToString("0.00")}");
-            Console.WriteLine("-------------------");
+            //double subtotal = paymentDue.FindSumTotal(totalOrder);
+
+
+            double sumTotal;
+            //PriceList priceList = new PriceList();
+            //List<double> practice = priceList.addToList();
+            for (int i = 0; i < totalOrder.Count; i++) // need list name
+            {
+                double sum = 0;
+                sumTotal = sum + i;
+                Console.WriteLine(sumTotal);
+            } 
+
+
+            //Console.WriteLine($"Subtotal: ${sumTotal}"); 
+            //Console.WriteLine($"Tax: ${(paymentDue.FindtaxTotal(sumTotal)).ToString("0.00")}");
+            //Console.WriteLine($"Amount Due: ${(paymentDue.FindGrandTotal((paymentDue.TaxTotal),sumTotal)).ToString("0.00")}");
+            //Console.WriteLine("-------------------");
 
 
             //Gets Payment Type
@@ -58,7 +103,7 @@ namespace MidtermProject_POSApplication
 
             foreach (var order in totalOrder)
             {
-                Console.WriteLine($"Item # {order.UserSelection} x {order.Quantity}");
+                Console.WriteLine($" {order.MenuItem} x {order.Quantity}");
             }
 
             payment.PrintReceiptInfo();
