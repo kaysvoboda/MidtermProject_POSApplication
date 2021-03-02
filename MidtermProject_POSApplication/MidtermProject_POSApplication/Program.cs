@@ -53,45 +53,49 @@ namespace MidtermProject_POSApplication
 
                 Console.Write("Would you like to make another selection? (y/n): ");
                 userContinue = Console.ReadLine();
+                Console.WriteLine();
             }
             while (userContinue == "y");
       
             foreach(var item in totalOrder)
             {
-                Console.WriteLine($"{item.MenuItem}, {item.Quantity} x {item.Price.ToString("0.00")} = {item.LinePrice.ToString("0.00")} ");
+                Console.WriteLine($"{item.MenuItem}, {item.Quantity} x ${item.Price.ToString("0.00")} = ${item.LinePrice.ToString("0.00")} ");
+                
             }
 
 
             //Displays Order Total
 
             var total = totalOrder.Sum(item => item.LinePrice);
-            Console.WriteLine(total);
+            Console.WriteLine();
+
+            var math = new Math();
+            math.SumTotal = total;
 
 
-
-            //Console.WriteLine($"Subtotal: ${total}");
-            //Console.WriteLine($"Tax: ${(paymentDue.FindtaxTotal(total)).ToString("0.00")}");
-            //Console.WriteLine($"Amount Due: ${(paymentDue.FindGrandTotal((paymentDue.TaxTotal), total)).ToString("0.00")}");
-            //Console.WriteLine("-------------------");
-
-
-            //Gets Payment Type
-            Console.WriteLine("Would you like to pay with credit, cash, or check?: ");
-            string paymentMethod = Console.ReadLine();
-            var payment = PaymentFactory.Tendered.Create(paymentMethod);
-            payment.GetPaymentInformation();
-
-            //Start receipt print out
-            // Below  - - add a print out of the items ordered for receipt above PrintReceiptInfo line
+            Console.WriteLine($"Subtotal: ${total.ToString("0.00")}");
+            Console.WriteLine($"Tax: ${(math.FindtaxTotal(total)).ToString("0.00")}");
+            Console.WriteLine($"Amount Due: ${(math.FindGrandTotal((math.TaxTotal), total)).ToString("0.00")}");
             Console.WriteLine("-------------------");
+            Console.WriteLine();
 
-            foreach (var order in totalOrder)
+
+
+
+            //Get Payment:
+            var payment = new GetPayment();
+            payment.GetPaymentType();
+            payment.ReturnPaymentType(payment.PaymentMethod, total);
+
+            //Print Receipt with order summary:
+            Console.WriteLine("-------------------");
+            Console.WriteLine();
+
+            foreach (var item in totalOrder)
             {
-                Console.WriteLine($" {order.MenuItem} x {order.Quantity}");
+                Console.WriteLine($"{item.MenuItem}, {item.Quantity} x ${item.Price.ToString("0.00")} = ${item.LinePrice.ToString("0.00")} ");
             }
-
-            payment.PrintReceiptInfo();
-            
+            payment.CreateReceipt(payment.PaymentMethod);
             Console.ReadLine();
 
             // Return to original menu for a new order

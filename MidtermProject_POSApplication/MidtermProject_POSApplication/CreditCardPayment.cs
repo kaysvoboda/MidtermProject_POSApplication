@@ -42,16 +42,10 @@ namespace MidtermProject_POSApplication
 
         public string GetExpDate()
         {
-            Console.Write("Expiration month: ");
-            string expirationMonth = Console.ReadLine();
-            int expMonth = Int32.Parse(expirationMonth);
-
-            Console.Write("Expiration year: ");
-            string expirationYear = Console.ReadLine();
-            int expYear = Int32.Parse(expirationYear);
-
-            string expirationdate = $"{expMonth}/{expYear}";
-            ExpirationDate = expirationdate;
+            Console.Write("Expiration date: ");
+            string expirationDate= Console.ReadLine();
+            
+            ExpirationDate = expirationDate;
             return ExpirationDate;
         }
 
@@ -78,8 +72,8 @@ namespace MidtermProject_POSApplication
 
         public void PrintReceiptInfo()
         {
-
-            Console.WriteLine(LastFourDigits);
+            Console.WriteLine("Payment Type: Credit Card");
+            Console.WriteLine($"Card Number: {LastFourDigits}");
             Console.WriteLine("Card Payment : APPROVED");
 
         }

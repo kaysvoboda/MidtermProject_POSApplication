@@ -10,6 +10,7 @@ namespace MidtermProject_POSApplication
 
         public string PaymentMethod { get; set; }
         public string DisplayCardNumber { get; set; }
+        public double AmountTendered { get; set; }
         public string ChangeDue { get; set; }
         public string CheckNumber { get; set; }
 
@@ -29,7 +30,7 @@ namespace MidtermProject_POSApplication
             }
         }
 
-        public string ReturnPaymentType(string paymentMethod)
+        public string ReturnPaymentType(string paymentMethod, double subTotal)
         {
             
             if (paymentMethod.ToLower() == "credit")
@@ -49,10 +50,10 @@ namespace MidtermProject_POSApplication
             {
                 var payment = new CashPayment();
                 var total = new Math();
-                
-                payment.GetPaymentInformation();
 
-                double changeDue = payment.ProvideChange(payment.AmountTendered, (double)total.FindGrandTotal(total.FindtaxTotal(15.0), 15));
+                payment.GetPaymentInformation();
+                AmountTendered = payment.AmountTendered;
+                double changeDue = payment.ProvideChange(AmountTendered, (double)total.FindGrandTotal(total.FindtaxTotal(subTotal),subTotal));
                 ChangeDue = $"${changeDue:#.##}";
                 return ChangeDue;
 
@@ -61,9 +62,9 @@ namespace MidtermProject_POSApplication
             else if (paymentMethod.ToLower() == "check")
             {
                 var payment = new CheckPayment();
-                var checknumber = 
-                    payment.PaymentType();
-                CheckNumber = checknumber;
+                payment.GetPaymentInformation();
+                var checkNumber = payment.CheckNumber;
+                CheckNumber = checkNumber;
                 return CheckNumber;
 
             }
@@ -71,18 +72,18 @@ namespace MidtermProject_POSApplication
         }
         public string CreateReceipt(string paymentMethod)
         {
-            var cashPayment = new CashPayment();
-
-
+            
             if (paymentMethod.ToLower() == "credit")
-            {   return $"Payment Type: Credit" +NewLine+
+            {   
+                Console.WriteLine($"Payment Type: Credit" +NewLine+
                 $"Card Number: {DisplayCardNumber}" +NewLine+
-                $"Payment: APPROVED";
+                $"Payment: APPROVED");
+                return "credit";
             }
             else if (paymentMethod.ToLower() == "cash")
             {
                 Console.WriteLine("Payment Type: Cash");
-                Console.WriteLine($"Amount Tendered: {cashPayment.AmountTendered}");
+                Console.WriteLine($"Amount Tendered: ${AmountTendered.ToString("0.00")}");
                 Console.WriteLine($"Change Due: {ChangeDue}");
                 return "cash";
             }
