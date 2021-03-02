@@ -44,7 +44,6 @@ namespace MidtermProject_POSApplication
             {
                 case "credit":
                     return new CreditCardPayment();
-
                 case "cash":
                     return new CashPayment();
                 case "check":
@@ -53,8 +52,6 @@ namespace MidtermProject_POSApplication
                     throw new Exception(nameof(paymentMethod));
             }
         }
-
-        //public abstract PMT PaymentType();
         public virtual void GetPaymentInformation() 
         {
         }
