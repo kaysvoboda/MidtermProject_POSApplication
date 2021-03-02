@@ -6,13 +6,13 @@ namespace MidtermProject_POSApplication
     public class Menu
     {
         
-        public string ItemNumber { get; set; }
+        public int ItemNumber { get; set; }
         public string Item { get; set; }
         public string Description { get; set; }
-        public string Price { get; set; }
+        public double Price { get; set; }
         public string Category { get; set; }
 
-        public Menu(string itemNumber, string item, string description, string price, string category)
+        public Menu(int itemNumber, string item, string description, double price, string category)
         {
             ItemNumber = itemNumber;
             Item = item;
@@ -25,23 +25,35 @@ namespace MidtermProject_POSApplication
         {
         }
 
-        public void TheMenu() 
+        public void searchMenu()
         {
-            Console.Write("What Item would you like?");
-            Console.WriteLine();
-
             string line;
-            var menuList= new List<Menu>();
+            var menuList = new List<Menu>();
+
 
             System.IO.StreamReader file =
                 new System.IO.StreamReader("Inventory.txt");
             while ((line = file.ReadLine()) != null)
             {
                 var words = line.Split(',');
-                menuList.Add(new Menu(words[0], words[1], words[2], words[3], words[4]));
+                menuList.Add(new Menu(int.Parse(words[0]), words[1], words[2], double.Parse(words[3]), words[4]));
             }
 
             file.Close();
+        }
+
+
+        public void TheMenu() 
+        {
+            //Console.Write("What Item would you like?");
+            //Console.WriteLine();
+
+            //string line;
+            
+            var menuList = new List<Menu>();
+
+            //var menuItem = menuList.Find(x => x.ItemNumber == );
+            //var itemPrice = menuItem.Price;
 
             Console.WriteLine("Beverage: ");
             foreach (var item in menuList)
@@ -67,6 +79,8 @@ namespace MidtermProject_POSApplication
 
             }
             Console.WriteLine();
+
+           
         }
     }
 }
