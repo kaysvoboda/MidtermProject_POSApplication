@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MidtermProject_POSApplication
 {
@@ -15,13 +16,8 @@ namespace MidtermProject_POSApplication
 
 
             //Take in menu item and quantity and display line total (item price * quantity) 
-            //Need to incorporate menu and prices
+
             List<Order> totalOrder = new List<Order>();
-
-            //var menuList = new List<Menu>();
-            menu.SearchMenu();
-
-
 
             string userContinue;
 
@@ -31,13 +27,10 @@ namespace MidtermProject_POSApplication
                 int userSelection = int.Parse(Console.ReadLine());
                 
                 Console.Write("Please enter quantity: ");
-                int userQuantity = int.Parse(Console.ReadLine());
-                
-
+                int userQuantity = int.Parse(Console.ReadLine());               
 
                 string line;
                 var menuList = new List<Menu>();
-
 
                 System.IO.StreamReader file =
                     new System.IO.StreamReader("Inventory.txt");
@@ -70,24 +63,15 @@ namespace MidtermProject_POSApplication
 
 
             //Displays Order Total
-            var paymentDue = new Math();
-            //double subtotal = paymentDue.FindSumTotal(totalOrder);
+
+            var total = totalOrder.Sum(item => item.LinePrice);
+            Console.WriteLine(total);
 
 
-            double sumTotal;
-            //PriceList priceList = new PriceList();
-            //List<double> practice = priceList.addToList();
-            for (int i = 0; i < totalOrder.Count; i++) // need list name
-            {
-                double sum = 0;
-                sumTotal = sum + i;
-                Console.WriteLine(sumTotal);
-            } 
 
-
-            //Console.WriteLine($"Subtotal: ${sumTotal}"); 
-            //Console.WriteLine($"Tax: ${(paymentDue.FindtaxTotal(sumTotal)).ToString("0.00")}");
-            //Console.WriteLine($"Amount Due: ${(paymentDue.FindGrandTotal((paymentDue.TaxTotal),sumTotal)).ToString("0.00")}");
+            //Console.WriteLine($"Subtotal: ${total}");
+            //Console.WriteLine($"Tax: ${(paymentDue.FindtaxTotal(total)).ToString("0.00")}");
+            //Console.WriteLine($"Amount Due: ${(paymentDue.FindGrandTotal((paymentDue.TaxTotal), total)).ToString("0.00")}");
             //Console.WriteLine("-------------------");
 
 
