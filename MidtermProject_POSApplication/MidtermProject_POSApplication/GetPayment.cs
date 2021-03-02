@@ -52,7 +52,7 @@ namespace MidtermProject_POSApplication
                 
                 payment.GetPaymentInformation();
 
-                decimal changeDue = payment.ProvideChange(payment.AmountTendered, (decimal)total.FindGrandTotal(total.FindtaxTotal(15.0M), total.FindSumTotal(15.0M)));
+                double changeDue = payment.ProvideChange(payment.AmountTendered, (double)total.FindGrandTotal(total.FindtaxTotal(15.0), 15));
                 ChangeDue = $"${changeDue:#.##}";
                 return ChangeDue;
 
