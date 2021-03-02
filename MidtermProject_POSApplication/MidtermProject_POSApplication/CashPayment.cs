@@ -40,7 +40,6 @@ namespace MidtermProject_POSApplication
         {
             var payment = new CashPayment();
             var total = new Math();
-            payment.GetPaymentInformation();
             payment.ProvideChange(AmountTendered, (decimal)(total.FindGrandTotal(total.FindtaxTotal(15), total.FindSumTotal(15))));
 
 

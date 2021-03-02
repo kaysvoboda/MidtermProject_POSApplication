@@ -6,13 +6,13 @@ namespace MidtermProject_POSApplication
     public class Menu
     {
         
-        public string ItemNumber { get; set; }
+        public int ItemNumber { get; set; }
         public string Item { get; set; }
         public string Description { get; set; }
-        public string Price { get; set; }
+        public double Price { get; set; }
         public string Category { get; set; }
 
-        public Menu(string itemNumber, string item, string description, string price, string category)
+        public Menu(int itemNumber, string item, string description, double price, string category)
         {
             ItemNumber = itemNumber;
             Item = item;
@@ -38,10 +38,12 @@ namespace MidtermProject_POSApplication
             while ((line = file.ReadLine()) != null)
             {
                 var words = line.Split(',');
-                menuList.Add(new Menu(words[0], words[1], words[2], words[3], words[4]));
+                menuList.Add(new Menu(int.Parse(words[0]), words[1], words[2], double.Parse(words[3]), words[4]));
             }
 
             file.Close();
+
+
 
             Console.WriteLine("Beverage: ");
             foreach (var item in menuList)

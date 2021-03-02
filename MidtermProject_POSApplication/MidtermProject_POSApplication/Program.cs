@@ -17,12 +17,18 @@ namespace MidtermProject_POSApplication
             //Need to incorporate menu and prices
             List<Order> totalOrder = new List<Order>();
 
+            //var menuList = new List<Menu>();
+
+
+            //System.IO.StreamReader file = new System.IO.StreamReader("Inventory.txt");
+        
             string userContinue;
 
             do
             {
                 Console.Write("Please select item number: ");
                 int userSelection = int.Parse(Console.ReadLine());
+                
 
                 Console.Write("Please enter quantity: ");
                 int userQuantity = int.Parse(Console.ReadLine());
