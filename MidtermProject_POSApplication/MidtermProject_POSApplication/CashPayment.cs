@@ -18,16 +18,27 @@ namespace MidtermProject_POSApplication
             return paymentType;
         }
 
-
-
         public void GetPaymentInformation()
         {
+            bool cashVerification = false;
+            decimal AmountTendered = 0;
+
             Console.Write("Amount tendered: ");
             string tendered = Console.ReadLine();
-            decimal amountTendered = decimal.Parse(tendered);
+            int amountTendered;
+            bool validCash = int.TryParse(Console.ReadLine(), out amountTendered); 
+            if (!validCash)
+            {
+                cashVerification = false;
+                Console.WriteLine("invalid entry- please choose a number between 1 and 100");
+            }
+            else
+            {
+                cashVerification = true;
+            }
             AmountTendered = amountTendered;
 
-         }
+        }
 
         public decimal ProvideChange(decimal amountTendered, decimal total)
         {
@@ -46,9 +57,6 @@ namespace MidtermProject_POSApplication
 
             Console.WriteLine($"Amount Tendered: {AmountTendered}");
             Console.WriteLine($"Change due: {ChangeOwed}");
-
-
-
         }
 
     }
