@@ -6,11 +6,11 @@ namespace MidtermProject_POSApplication
 {
     public class CashPayment : IPayment
     {
+        public double AmountTendered { get; set; }
+        public double ChangeOwed { get; set; }
 
-
-        public decimal AmountTendered { get; set; }
-        public decimal ChangeOwed { get; set; }
-
+<<<<<<< HEAD
+=======
 
         public string PaymentType()
         {
@@ -18,20 +18,38 @@ namespace MidtermProject_POSApplication
             return paymentType;
         }
 
-
-
+>>>>>>> cea784db1a02962b879c3989e47830a3bede964b
         public void GetPaymentInformation()
         {
+            bool cashVerification = false;
+            decimal AmountTendered = 0;
+
             Console.Write("Amount tendered: ");
             string tendered = Console.ReadLine();
-            decimal amountTendered = decimal.Parse(tendered);
+
+            int amountTendered;
+            bool validCash = int.TryParse(Console.ReadLine(), out amountTendered); 
+            if (!validCash)
+            {
+                cashVerification = false;
+                Console.WriteLine("invalid entry- please choose a number between 1 and 100");
+            }
+            else
+            {
+                cashVerification = true;
+            }
             AmountTendered = amountTendered;
 
+        }
+
+            double amountTendered = double.Parse(tendered);
+            AmountTendered = amountTendered;
          }
 
-        public decimal ProvideChange(decimal amountTendered, decimal total)
+
+        public double ProvideChange(double amountTendered, double total)
         {
-            decimal changeOwed = amountTendered - total;
+            double changeOwed = amountTendered - total;
             ChangeOwed = changeOwed;
             return ChangeOwed;
         }
@@ -40,15 +58,11 @@ namespace MidtermProject_POSApplication
         {
             var payment = new CashPayment();
             var total = new Math();
-            payment.GetPaymentInformation();
-            payment.ProvideChange(AmountTendered, (decimal)(total.FindGrandTotal(total.FindtaxTotal(15), total.FindSumTotal(15))));
+            payment.ProvideChange(AmountTendered, (double)(total.FindGrandTotal(total.FindtaxTotal(15),15)));
 
 
             Console.WriteLine($"Amount Tendered: {AmountTendered}");
             Console.WriteLine($"Change due: {ChangeOwed}");
-
-
-
         }
 
     }
