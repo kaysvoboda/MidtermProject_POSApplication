@@ -8,7 +8,6 @@ namespace MidtermProject_POSApplication
     {
         public string MenuItem { get; set; }
         public double Quantity { get; set; }
-
         public double Price { get; set; }
         public double LinePrice { get; set; }
 
