@@ -12,26 +12,10 @@ namespace MidtermProject_POSApplication
         public double GrandTotal { get; set; }
 
 
-        //public double FindSumTotal(double sumTotal)
-        //{
-
-        //    PriceList priceList = new PriceList();
-        //    List<double> practice = priceList.addToList();
-        //    for(int i = 0; i < practice.Count; i++) // need list name
-        //        {
-        //        double sum = 0;
-        //        sumTotal = sum + i;
-        //        }
-        //    SumTotal = sumTotal;
-        //    return SumTotal;
-        //}
 
         public double FindtaxTotal(double sumTotal)
         {
-
             double taxTotal = sumTotal * .06;
-         
-
             TaxTotal = taxTotal;
             return TaxTotal;
         }

@@ -19,12 +19,12 @@ namespace MidtermProject_POSApplication
         {
             while (true)
             {
-                Console.WriteLine("Would you like to pay with credit, cash, or check?: ");
+                Console.WriteLine("How would you like to pay today? Credit, cash, or check?: ");
                 string paymentMethod = Console.ReadLine();
                 PaymentMethod = paymentMethod;
                 if ((paymentMethod.ToLower() != "credit" && paymentMethod.ToLower() != "cash" && paymentMethod.ToLower() != "check"))
                 {
-                    Console.WriteLine("Invalid payment type. Please user credit, cash, or check");
+                    Console.WriteLine("Sorry, that payment type is invalid. Please choose credit, cash, or check.");
                 }
                 else return PaymentMethod;
             }

@@ -13,7 +13,6 @@ namespace MidtermProject_POSApplication
             practice.Add(5.98M);
             practice.Add(2.49M);
             practice.Add(0.79M);
-
             return practice;
     }   }
 }

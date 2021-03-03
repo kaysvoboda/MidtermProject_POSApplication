@@ -45,12 +45,6 @@ namespace MidtermProject_POSApplication
 
         public void TheMenu() 
         {
-            //Console.Write("What Item would you like?");
-            //Console.WriteLine();
-
-            //var menuItem = menuList.Find(x => x.ItemNumber == );
-            //var itemPrice = menuItem.Price;
-
             string line;         
             var menuList = new List<Menu>();
 
@@ -86,11 +80,8 @@ namespace MidtermProject_POSApplication
             {
                 if (item.Category.ToLower().Contains("miscellaneous"))
                     Console.WriteLine($"{item.ItemNumber}: {item.Item} {item.Description} - ${item.Price} - {item.Category}");
-
             }
-            Console.WriteLine();
-
-           
+            Console.WriteLine();           
         }
     }
 }
