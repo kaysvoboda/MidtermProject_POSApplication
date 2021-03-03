@@ -105,6 +105,7 @@ namespace MidtermProject_POSApplication
             Console.WriteLine();
             Console.WriteLine("Payment Information:");
             payment.CreateReceipt(payment.PaymentMethod);
+            Console.WriteLine();
             Console.WriteLine("Thank you for stopping by! Hope to see you again soon.");
 
             // Return to original menu for a new order

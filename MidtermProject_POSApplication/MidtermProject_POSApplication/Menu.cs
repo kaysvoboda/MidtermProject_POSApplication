@@ -25,24 +25,6 @@ namespace MidtermProject_POSApplication
         {
         }
 
-        public void SearchMenu()
-        {
-            //string line;
-            //var menuList = new List<Menu>();
-
-
-            //System.IO.StreamReader file =
-            //    new System.IO.StreamReader("Inventory.txt");
-            //while ((line = file.ReadLine()) != null)
-            //{
-            //    var words = line.Split(',');
-            //    menuList.Add(new Menu(int.Parse(words[0]), words[1], words[2], double.Parse(words[3]), words[4]));
-            //}
-
-            //file.Close();
-        }
-
-
         public void TheMenu() 
         {
             string line;         

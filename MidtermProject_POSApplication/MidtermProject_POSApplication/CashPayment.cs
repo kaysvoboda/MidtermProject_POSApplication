@@ -9,14 +9,6 @@ namespace MidtermProject_POSApplication
         public double AmountTendered { get; set; }
         public double ChangeOwed { get; set; }
 
-
-        public string PaymentType()
-        {
-            string paymentType = "cash";
-            return paymentType;
-        }
-
-
         public void GetPaymentInformation()
         {
             Console.Write("Amount tendered: ");
