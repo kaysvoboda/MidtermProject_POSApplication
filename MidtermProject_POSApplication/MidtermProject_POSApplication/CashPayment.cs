@@ -9,13 +9,43 @@ namespace MidtermProject_POSApplication
         public double AmountTendered { get; set; }
         public double ChangeOwed { get; set; }
 
+<<<<<<< HEAD
+=======
+
+        public string PaymentType()
+        {
+            string paymentType = "cash";
+            return paymentType;
+        }
+
+>>>>>>> cea784db1a02962b879c3989e47830a3bede964b
         public void GetPaymentInformation()
         {
+            bool cashVerification = false;
+            decimal AmountTendered = 0;
+
             Console.Write("Amount tendered: ");
             string tendered = Console.ReadLine();
+
+            int amountTendered;
+            bool validCash = int.TryParse(Console.ReadLine(), out amountTendered); 
+            if (!validCash)
+            {
+                cashVerification = false;
+                Console.WriteLine("invalid entry- please choose a number between 1 and 100");
+            }
+            else
+            {
+                cashVerification = true;
+            }
+            AmountTendered = amountTendered;
+
+        }
+
             double amountTendered = double.Parse(tendered);
             AmountTendered = amountTendered;
          }
+
 
         public double ProvideChange(double amountTendered, double total)
         {
