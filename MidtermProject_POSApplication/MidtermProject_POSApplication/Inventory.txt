@@ -1,13 +1,12 @@
-﻿Item Number, Item, Description, Price, Category
-1,Caramel Machiotto, Caramel caffinated beverage, 5.45, Beverage
-2,Vanilla Bean, Vanilla based frozen beverage, 5.45, Beverage
-3,Coffee, basic coffee beverage, 2.00, Beverage
-4,Caramel Mocha Latte, Latte, 5.45, Beverage
-5,Bagel, Plain-CinnamonRaisin, 2.50, Food
-6,Cookie, ChocolateChip-Oatmeal-Raisin-Sugar, 1.50, Food
-7,Doughtnuts, variety, 1.50, Food
-8,Muffin, blueberry-Rasberry-BananaNut, 1.50, Food
-9,Coffee Cup, signature coffee cup, 6.00, Miscellaneous
-10,Coffee Mug, signature coffee mug, 8.50, Miscellaneous
-11,Bag of Coffee Grounds, Fresh Ground Coffee, 2.50, Miscellaneous
-12,Tea Cup, signature tea cup, 5.50, Miscellaneous
+﻿1,Caramel Machiatto,Caramel caffinated beverage,5.45,Beverage
+2,Vanilla Bean,Vanilla based frozen beverage,5.45,Beverage
+3,Coffee,basic coffee beverage,2.00,Beverage
+4,Caramel Mocha Latte,Latte,5.45,Beverage
+5,Bagel,Plain-CinnamonRaisin,2.50,Food
+6,Cookie,ChocolateChip-Oatmeal-Raisin-Sugar,1.50,Food
+7,Doughtnuts,variety,1.50,Food
+8,Muffin,blueberry-Rasberry-BananaNut,1.50,Food
+9,Coffee Cup,signature coffee cup,6.00,Miscellaneous
+10,Coffee Mug,signature coffee mug,8.50,Miscellaneous
+11,Bag of Coffee Grounds,Fresh Ground Coffee,2.50,Miscellaneous
+12,Tea Cup,signature tea cup,5.50,Miscellaneous

@@ -7,38 +7,22 @@ namespace MidtermProject_POSApplication
 {
     public class Math : PriceList
     {
-        public decimal SumTotal { get; set; }
-        public decimal TaxTotal { get; set; }
-        public decimal GrandTotal { get; set; }
+        public double SumTotal { get; set; }
+        public double TaxTotal { get; set; }
+        public double GrandTotal { get; set; }
 
 
-        public decimal FindSumTotal(decimal sumTotal)
+
+        public double FindtaxTotal(double sumTotal)
         {
-
-            PriceList priceList = new PriceList();
-            List<decimal> practice = priceList.addToList();
-            for(int i = 0; i < practice.Count; i++) // need list name
-                {
-                decimal sum = 0;
-                sumTotal = sum + i;
-                }
-            SumTotal = sumTotal;
-            return SumTotal;
-        }
-
-        public decimal FindtaxTotal(decimal sumTotal)
-        {
-
-            decimal taxTotal = sumTotal * .06M;
-         
-
+            double taxTotal = sumTotal * .06;
             TaxTotal = taxTotal;
             return TaxTotal;
         }
 
-        public decimal FindGrandTotal(decimal taxTotal, decimal sumTotal)
+        public double FindGrandTotal(double taxTotal, double sumTotal)
         {
-            decimal grandTotal = sumTotal + taxTotal;
+            double grandTotal = sumTotal + taxTotal;
             GrandTotal = grandTotal;
             return GrandTotal;
         }

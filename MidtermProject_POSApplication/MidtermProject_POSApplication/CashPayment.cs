@@ -6,10 +6,8 @@ namespace MidtermProject_POSApplication
 {
     public class CashPayment : IPayment
     {
-
-
-        public decimal AmountTendered { get; set; }
-        public decimal ChangeOwed { get; set; }
+        public double AmountTendered { get; set; }
+        public double ChangeOwed { get; set; }
 
 
         public string PaymentType()
@@ -25,6 +23,7 @@ namespace MidtermProject_POSApplication
 
             Console.Write("Amount tendered: ");
             string tendered = Console.ReadLine();
+
             int amountTendered;
             bool validCash = int.TryParse(Console.ReadLine(), out amountTendered); 
             if (!validCash)
@@ -40,9 +39,14 @@ namespace MidtermProject_POSApplication
 
         }
 
-        public decimal ProvideChange(decimal amountTendered, decimal total)
+            double amountTendered = double.Parse(tendered);
+            AmountTendered = amountTendered;
+         }
+
+
+        public double ProvideChange(double amountTendered, double total)
         {
-            decimal changeOwed = amountTendered - total;
+            double changeOwed = amountTendered - total;
             ChangeOwed = changeOwed;
             return ChangeOwed;
         }
@@ -51,8 +55,7 @@ namespace MidtermProject_POSApplication
         {
             var payment = new CashPayment();
             var total = new Math();
-            payment.GetPaymentInformation();
-            payment.ProvideChange(AmountTendered, (decimal)(total.FindGrandTotal(total.FindtaxTotal(15), total.FindSumTotal(15))));
+            payment.ProvideChange(AmountTendered, (double)(total.FindGrandTotal(total.FindtaxTotal(15),15)));
 
 
             Console.WriteLine($"Amount Tendered: {AmountTendered}");

@@ -14,12 +14,12 @@ namespace MidtermProject_POSApplication
 
         public string CheckNumber { get; set; }
 
-        public void GetPaymentInformation() //testing - may need to ad different method with this name
+        public void GetPaymentInformation()
         {
             Console.Write("Check number: ");
             string checkNumber = Console.ReadLine();
             CheckNumber = checkNumber;
-            //return CheckNumber;
+
         }
 
         public void PrintReceiptInfo()
