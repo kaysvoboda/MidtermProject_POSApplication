@@ -19,7 +19,7 @@ namespace MidtermProject_POSApplication
         {
             while (true)
             {
-                Console.WriteLine("How would you like to pay today? Credit, cash, or check?: ");
+                Console.WriteLine("How would you like to pay today? Please enter credit, cash, or check: ");
                 string paymentMethod = Console.ReadLine();
                 PaymentMethod = paymentMethod;
                 if ((paymentMethod.ToLower() != "credit" && paymentMethod.ToLower() != "cash" && paymentMethod.ToLower() != "check"))
@@ -83,7 +83,7 @@ namespace MidtermProject_POSApplication
             else if (paymentMethod.ToLower() == "cash")
             {
                 Console.WriteLine("Payment Type: Cash");
-                Console.WriteLine($"Amount Tendered: ${AmountTendered.ToString("0.00")}");
+                Console.WriteLine($"Amount Tendered: ${AmountTendered:0.00}");
                 Console.WriteLine($"Change Due: {ChangeDue}");
                 return "cash";
             }

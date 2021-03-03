@@ -9,6 +9,8 @@ namespace MidtermProject_POSApplication
         public double AmountTendered { get; set; }
         public double ChangeOwed { get; set; }
 
+<<<<<<< HEAD
+=======
 
         public string PaymentType()
         {
@@ -16,6 +18,7 @@ namespace MidtermProject_POSApplication
             return paymentType;
         }
 
+>>>>>>> cea784db1a02962b879c3989e47830a3bede964b
         public void GetPaymentInformation()
         {
             bool cashVerification = false;

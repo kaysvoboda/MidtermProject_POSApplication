@@ -6,7 +6,7 @@ namespace MidtermProject_POSApplication
 {
     public interface IPayment
     {
-        string PaymentType();
+        //string PaymentType();
         public void GetPaymentInformation();
         public void PrintReceiptInfo();
     }

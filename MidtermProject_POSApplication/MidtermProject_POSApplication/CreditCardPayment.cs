@@ -11,11 +11,6 @@ namespace MidtermProject_POSApplication
         public string ExpirationDate { get; set; }
         public string CVV { get; set; }
 
-        public string PaymentType()
-        {
-            string paymentType = "credit";
-            return paymentType;
-        }
 
         public string GetCardNumber()
         {
