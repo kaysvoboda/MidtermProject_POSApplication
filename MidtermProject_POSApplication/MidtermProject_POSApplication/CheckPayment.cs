@@ -19,7 +19,6 @@ namespace MidtermProject_POSApplication
         {
             Console.WriteLine("Payment Method: Check");
             Console.WriteLine($"Check Number: {CheckNumber}");
-
         }
     }
 }

@@ -11,8 +11,6 @@ namespace MidtermProject_POSApplication
         public double TaxTotal { get; set; }
         public double GrandTotal { get; set; }
 
-
-
         public double FindtaxTotal(double sumTotal)
         {
             double taxTotal = sumTotal * .06;

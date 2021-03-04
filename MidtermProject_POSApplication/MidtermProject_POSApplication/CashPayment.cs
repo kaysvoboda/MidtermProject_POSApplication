@@ -38,9 +38,6 @@ namespace MidtermProject_POSApplication
             }
         }
 
-
-
-
         public double ProvideChange(double amountTendered, double total)
         {
             double changeOwed = amountTendered - total;

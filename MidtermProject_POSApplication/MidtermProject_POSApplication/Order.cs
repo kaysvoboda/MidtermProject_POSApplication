@@ -11,7 +11,6 @@ namespace MidtermProject_POSApplication
         public double Price { get; set; }
         public double LinePrice { get; set; }
 
-
         public Order (string MenuItem, double Quantity, double Price, double LinePrice)
         {
             this.MenuItem = MenuItem;

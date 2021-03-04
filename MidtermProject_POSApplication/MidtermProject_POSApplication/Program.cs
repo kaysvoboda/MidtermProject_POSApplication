@@ -164,8 +164,6 @@ namespace MidtermProject_POSApplication
                 Console.WriteLine();
                 Console.WriteLine("-------------------");
 
-
-
                 foreach (var item in historicalOrder)
                 {
                     Console.WriteLine($"Order Number: { orderNumber}, Item Name: {menuItemName}, Quantity: { userQuantity}");
