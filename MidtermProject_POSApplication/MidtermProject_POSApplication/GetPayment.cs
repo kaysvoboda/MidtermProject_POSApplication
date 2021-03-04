@@ -19,7 +19,7 @@ namespace MidtermProject_POSApplication
         {
             while (true)
             {
-                Console.WriteLine("How would you like to pay today? Please enter credit, cash, or check: ");
+                Console.Write("How would you like to pay today? Please enter credit, cash, or check: ");
                 string paymentMethod = Console.ReadLine();
                 PaymentMethod = paymentMethod;
                 if ((paymentMethod.ToLower() != "credit" && paymentMethod.ToLower() != "cash" && paymentMethod.ToLower() != "check"))

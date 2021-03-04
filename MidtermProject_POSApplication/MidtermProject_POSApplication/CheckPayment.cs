@@ -14,12 +14,5 @@ namespace MidtermProject_POSApplication
             string checkNumber = Console.ReadLine();
             CheckNumber = checkNumber;
         }
-
-        public void PrintReceiptInfo()
-        {
-            Console.WriteLine("Payment Method: Check");
-            Console.WriteLine($"Check Number: {CheckNumber}");
-        }
-
     }
 }
