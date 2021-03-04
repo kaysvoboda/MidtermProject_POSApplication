@@ -11,11 +11,6 @@ namespace MidtermProject_POSApplication
         public string ExpirationDate { get; set; }
         public string CVV { get; set; }
 
-        public string PaymentType()
-        {
-            string paymentType = "credit";
-            return paymentType;
-        }
 
         public string GetCardNumber()
         {
@@ -34,7 +29,7 @@ namespace MidtermProject_POSApplication
         public string GetExpDate()
         {
             Console.Write("Expiration date: ");
-            string expirationDate= Console.ReadLine();         
+            string expirationDate = Console.ReadLine();
             ExpirationDate = expirationDate;
             return ExpirationDate;
         }

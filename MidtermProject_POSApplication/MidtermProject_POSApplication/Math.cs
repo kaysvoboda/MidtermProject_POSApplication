@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MidtermProject_POSApplication
 {
-    public class Math : PriceList
+    public class Math
     {
         public double SumTotal { get; set; }
         public double TaxTotal { get; set; }
